@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Diri - Nad Rotul Imaniyah</title>
+  <style>
+    /* ==== RESET ==== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Times New Roman", sans-serif;
+    }
+
+    body {
+      color: #333;
+      background: rgba(0, 0, 0, 0.4);
+      transition: background 0.3s, color 0.3s;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ==== VIDEO BACKGROUND ==== */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(55%);
+    }
+
+    /* ==== DARK MODE ==== */
+    body.dark-mode {
+      color: #f8f9fa;
+    }
+
+    header {
+      background-color: rgba(46, 204, 113, 0.9);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 1.5rem;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d1ffbd;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    body.dark-mode .container {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      max-width: 180px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #2ecc71;
+    }
+
+    .skills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      background: #27ae60;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #032b14;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #115d0f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: 
+      rgba(6, 122, 54, 0.9);
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+
+    .dark-toggle {
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.01);
+      color: rgba(255, 255, 255, 0.447);
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    .dark-toggle:hover {
+      background: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== VIDEO BACKGROUND ====== -->
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+    Browser kamu tidak mendukung video tag.
+  </video>
+
+  <header>
+    <h1>Website Profil Diri</h1>
+    <p>by Nad Rotul Imaniyah</p>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('about')">About Me</a></li>
+        <li><a href="#" onclick="showPage('portfolio')">Portfolio & Contact</a></li>
+      </ul>
+    </nav>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Mode</button>
+  </header>
+
+  <div class="container">
+    <!-- HOME -->
+    <section id="home" class="active">
+      <h2>Selamat Datang!</h2>
+      <img src="aku ima.jpg" alt="Foto Profil">
+      <p>Halo! Saya <b>Nad Rotul Imaniyah</b>, mahasiswa Pendidikan Teknologi Informasi yang memiliki ketertarikan pada bidang <i>web development</i>, desain digital, serta teknologi pendidikan. Website ini menampilkan profil, pengalaman, dan karya yang telah saya buat.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <p><b>Nama:</b> Nad Rotul Imaniyah</p>
+      <p><b>Pendidikan:</b> Universitas Lampung - Pendidikan Teknologi Informasi</p>
+      <p><b>Minat:</b> Desain Web, Animasi, Ilustrasi, dan Pengembangan Aplikasi</p>
+      <h3>Keahlian:</h3>
+      <div class="skills">
+        <span class="skill">Ilustrasi Ibis Paint X</span>
+        <span class="skill">Medibang Paint</span>
+        <span class="skill">Clip Studio Paint</span>
+        <span class="skill">UI/UX Design</span>
+        <span class="skill">Canva</span>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <p>Beberapa proyek yang pernah saya kerjakan (dummy project):</p>
+      <ul>
+        <li>Website Profil Sekolah</li>
+        <li>Desain Poster</li>
+        <li>Art Comic untuk @Idedaya.agency</li>
+      </ul>
+
+      <div class="portfolio-gallery">
+  <div class="project">
+    <img src="imageskarya1.jpg" alt="Karya 1" style="width:100%; max-width:250px; border-radius:10px;">
+    <p>Ilustrasi 17 Agustus 2025</p>
+  </div>
+  <div class="project">
+    <img src="imageskarya2.jpg" alt="Karya 2" style="width:100%; max-width:250px; border-radius:10px;">
+    <p>Ilustrasi Kompetisi</p>
+  </div>
+  <div class="project">
+    <img src="imageskarya3.jpg" alt="Karya 3" style="width:100%; max-width:250px; border-radius:10px;">
+    <p>Ilustrasi Komik</p>
+  </div>
+  <div class="project">
+    <img src="imageskarya4.jpg" alt="Karya 4" style="width:100%; max-width:250px; border-radius:10px;">
+    <p>Cover Book</p>
+  </div>
+</div>
+
+
+      <h3>Hubungi Saya</h3>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Nama Anda">
+        <input type="email" id="email" placeholder="Email Anda">
+        <textarea id="message" rows="4" placeholder="Pesan Anda..."></textarea>
+        <button type="button" onclick="validateForm()">Kirim</button>
+      </form>
+      <p id="formMsg"></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Nad Rotul Imaniyah</p>
+  </footer>
+
+  <script>
+    // GANTI HALAMAN
+    function showPage(pageId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+    }
+
+    // DARK MODE
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    // VALIDASI FORM
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const msg = document.getElementById("message").value.trim();
+      const formMsg = document.getElementById("formMsg");
+
+      if (name === "" || email === "" || msg === "") {
+        formMsg.style.color = "red";
+        formMsg.textContent = "Harap isi semua kolom sebelum mengirim.";
+      } else if (!email.includes("@")) {
+        formMsg.style.color = "red";
+        formMsg.textContent = "Alamat email tidak valid.";
+      } else {
+        formMsg.style.color = "green";
+        formMsg.textContent = "Pesan berhasil dikirim! Terima kasih.";
+        document.getElementById("contactForm").reset();
+      }
+    }
+  </script>
+</body>
+</html>
